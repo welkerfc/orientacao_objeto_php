@@ -1,46 +1,46 @@
 <?php
+class Fabricante{
 
-class Produto{
+  private $nome;
 
-  private $descricao;
-  private $preco;
-
-  public function getDetalhes(){
-
-    return "O produto {$this->descricao} custa {$this->preco}";
+  public function __construct($nome){
+    $this->nome = $nome;
 
   }
 
-  public function setDescricao($valor){
-    $this->descricao = $valor;
-  }
-
-
-  public function setPreco($valor){
-    $this->preco = $valor;
-
-  }
-
-  public function getDescicao($valor){
-    return $this->descricao;
-  }
-
-  public function getPreco($valor){
-    return $this->preco;
-
+  public function getNome(){
+    return $this->nome;
   }
 
 }
 
-$p1 = new Produto;
-$p1->setDescricao('Livro');
-$p1->setPreco(5);
+class Produto{
+
+private $descricao;
+private $preco;
+private $fabricante;
+
+public function __construct($descricao, $preco, Fabricante $fabricante){
+
+  $this->descricao = $descricao;
+  $this->preco = $preco;
+  $this->fabricante = $fabricante;
+
+}
+
+public function getDetalhes(){
+  return "O produto {$this->descricao} custa {$this->preco} e de fornecedor{$this->fabricante->getNome()}";
+}
+
+
+
+}//classe produto
+
+$f1 = new Fabricante(" Editora B");
+
+$p1 = new Produto("Livro ", 50,$f1);
 
 //var_dump($p1);
 
-
 echo $p1->getDetalhes();
-
-
-
-?>
+ ?>
