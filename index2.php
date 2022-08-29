@@ -25,7 +25,7 @@ class Conta{
 }
 
 //heranca de classes
-class Poupanca extends Conta{
+final class Poupanca extends Conta{
   public function saque($valor){
     if($this->saldo >= $valor){
       $this->saldo -= $valor;
@@ -37,7 +37,7 @@ class Poupanca extends Conta{
 }
 
 
-class Corrente extends Conta{
+final class Corrente extends Conta{
   protected $limite;
 
   public function __construct($agencia,$conta,$saldo,$limite){
