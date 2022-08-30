@@ -1,9 +1,17 @@
 <?php
 require "vendor/autoload.php";
 
+use \App\Entity\Vaga;
+
+
 if(isset($_POST['titulo'], $_POST['descricao'], $_POST['ativo'])){
 
-  die("cadastrar");
+$obVaga = new Vaga;
+$obVaga->titulo = $_POST['titulo'];
+$obVaga->descricao = $_POST['descricao'];
+$obVaga->ativo = $_POST['ativo'];
+$obVaga->cadastrar();
+
 
 }
 
